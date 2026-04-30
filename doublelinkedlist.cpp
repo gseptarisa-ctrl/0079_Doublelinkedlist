@@ -67,3 +67,47 @@ public:
         newnode->prev = current;
         current->next = newnode;
     }
+
+    void deletenode()
+    {
+        if (START == NULL)
+        {
+            cout << "List is empty" << endl;
+            return;
+        }
+
+        int rollno;
+        cout << "Enter the roll number of the student whose record is to be deleted: ";
+        cin >> rollno;
+
+        Node *current = START;
+
+        while (current != NULL && current->no != rollno)
+            current = current->next;
+
+        if (current == NULL)
+        {
+            cout << "Record not found" << endl;
+            return;
+        }
+
+        if (current == START)
+        {
+            START = current->next;
+            if (START != NULL)
+                START->prev = NULL;
+        }
+        else
+        {
+            if (current->next != NULL)
+                current->next->prev = current->prev;
+
+            if (current->prev != NULL)
+                current->prev->next = current->next;
+        }
+
+        delete current;
+        cout << "Record with roll number " << rollno << " deleted" << endl;
+    }
+
+  
