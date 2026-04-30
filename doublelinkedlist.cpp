@@ -26,7 +26,7 @@ public:
         int n;
         cout << "Enter the roll number of the student: ";
         cin >> n;
-        
+
         // Step 1: Allocate memory for new node
         Node *newnode = new Node();
 
@@ -40,3 +40,30 @@ public:
             {
                 cout << "Duplicate roll numbers not allowed" << endl;
                 return;
+                            }
+            newnode->next = START;
+            if (START != NULL)
+                START->prev = newnode;
+            newnode->prev = NULL;
+            START = newnode;
+            return;
+        }
+
+        // Step 4: Traverse to find position for insertion
+        Node *current = START;
+        while (current->next != NULL && current->next->no < n)
+            current = current->next;
+
+        if (current->next != NULL && current->next->no == n)
+        {
+            cout << "Duplicate roll numbers not allowed" << endl;
+            return;
+        }
+
+        newnode->next = current->next;
+        if (current->next != NULL)
+            current->next->prev = newnode;
+
+        newnode->prev = current;
+        current->next = newnode;
+    }
