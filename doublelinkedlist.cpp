@@ -14,3 +14,9 @@ public:
 class DoublyLinkedList
 {
     Node *START;
+    
+public:
+    DoublyLinkedList()
+    {
+        START = NULL;
+    }
