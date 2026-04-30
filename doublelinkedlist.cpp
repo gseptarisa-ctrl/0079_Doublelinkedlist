@@ -126,3 +126,23 @@ public:
             currentnode = currentnode->next;
         }
     }
+
+    void revtraverse()
+    {
+        if (START == NULL)
+        {
+            cout << "List is empty" << endl;
+            return;
+        }
+
+        Node *currentnode = START;
+        while (currentnode->next != NULL)
+            currentnode = currentnode->next;
+
+        cout << "Records in descending order of roll number are:\n";
+        while (currentnode != NULL)
+        {
+            cout << currentnode->no << " ";
+            currentnode = currentnode->prev;
+        }
+    }
