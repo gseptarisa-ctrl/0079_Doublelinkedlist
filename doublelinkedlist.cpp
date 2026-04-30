@@ -205,3 +205,7 @@ int main()
         default:
             cout << "Invalid option" << endl;
         }
+        
+        cout << "\nPress enter to continue...";
+        cin.ignore();
+        cin.get();
