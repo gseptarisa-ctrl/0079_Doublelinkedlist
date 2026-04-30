@@ -174,7 +174,7 @@ int main()
 {
     DoublyLinkedList list;
     char choice;
-    
+
     do
     {
         cout << "\n1: Add Record\n";
@@ -184,3 +184,24 @@ int main()
         cout << "5: Search Record\n";
         cout << "Enter your choice: ";
         cin >> choice;
+
+        switch (choice)
+        {
+        case '1':
+            list.addnode();
+            break;
+        case '2':
+            list.deletenode();
+            break;
+        case '3':
+            list.traverse();
+            break;
+        case '4':
+            list.revtraverse();
+            break;
+        case '5':
+            list.search();
+            break;
+        default:
+            cout << "Invalid option" << endl;
+        }
