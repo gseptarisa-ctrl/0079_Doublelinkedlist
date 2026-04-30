@@ -146,3 +146,26 @@ public:
             currentnode = currentnode->prev;
         }
     }
+
+    void searchData()
+    {
+        if (START == NULL)
+        {
+            cout << "List is empty" << endl;
+            return;
+        }
+
+        int rollno;
+        cout << "Enter the roll number to be searched: ";
+        cin >> rollno;
+
+        Node *current = START;
+        while (current != NULL && current->no != rollno)
+            current = current->next;
+
+        if (current == NULL)
+            cout << "Record not found" << endl;
+        else
+            cout << "Record found" << endl;
+    }
+};
